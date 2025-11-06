@@ -1,0 +1,40 @@
+{
+  "actorSpecification": 1,
+  "name": "uuid-generator-actor",
+  "title": "UUID Generator",
+  "description": "Generate universally unique identifiers (UUIDs) on demand with support for multiple UUID versions (v1, v4, v5). Perfect for developers, database administrators, and testers who need reliable, standards-compliant unique identifiers.",
+  "version": "1.0.0",
+  "meta": {
+    "templateId": "javascript-start"
+  },
+  "input": "./input_schema.json",
+  "dockerfile": "./Dockerfile",
+  "readme": "./README.md",
+  "categories": [
+    "DEVELOPER_TOOLS",
+    "AUTOMATION",
+    "INTEGRATIONS"
+  ],
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "title": "Generated UUIDs",
+      "description": "Dataset containing the generated UUIDs",
+      "views": {
+        "overview": {
+          "title": "Overview",
+          "transformation": {
+            "fields": [
+              "uuid",
+              "version"
+            ]
+          },
+          "display": {
+            "component": "table",
+            "properties": {}
+          }
+        }
+      }
+    }
+  }
+}
