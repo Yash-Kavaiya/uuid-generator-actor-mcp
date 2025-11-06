@@ -1,0 +1,8 @@
+{
+  "uuidVersion": "v4",
+  "count": 10,
+  "outputFormat": "json",
+  "includeMetadata": true,
+  "uppercase": false,
+  "removeDashes": false
+}

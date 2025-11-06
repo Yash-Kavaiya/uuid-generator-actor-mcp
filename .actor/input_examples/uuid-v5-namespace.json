@@ -1,0 +1,8 @@
+{
+  "uuidVersion": "v5",
+  "count": 1,
+  "namespace": "DNS",
+  "name": "example.com",
+  "outputFormat": "json",
+  "includeMetadata": true
+}

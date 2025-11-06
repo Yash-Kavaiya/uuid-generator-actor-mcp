@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "uuid-generator": {
+      "command": "node",
+      "args": ["src/mcp-server.js"],
+      "description": "UUID Generator MCP Server - Generate, validate, analyze, and manage UUIDs",
+      "capabilities": {
+        "tools": [
+          "generate_uuid",
+          "validate_uuid",
+          "analyze_uuid",
+          "convert_uuid_format",
+          "batch_validate",
+          "batch_analyze",
+          "check_collisions",
+          "generate_statistics"
+        ]
+      }
+    }
+  }
+}

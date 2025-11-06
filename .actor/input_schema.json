@@ -1,0 +1,107 @@
+{
+  "title": "UUID Generator Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "operation": {
+      "title": "Operation",
+      "type": "string",
+      "description": "Select the operation to perform",
+      "enum": ["generate", "validate", "analyze", "convert", "batch_validate", "batch_analyze", "check_collisions", "statistics"],
+      "enumTitles": [
+        "Generate - Create new UUIDs",
+        "Validate - Check if UUID is valid",
+        "Analyze - Extract UUID details",
+        "Convert - Change UUID format",
+        "Batch Validate - Validate multiple UUIDs",
+        "Batch Analyze - Analyze multiple UUIDs",
+        "Check Collisions - Find duplicates",
+        "Statistics - Generate UUID statistics"
+      ],
+      "default": "generate",
+      "editor": "select"
+    },
+    "uuidVersion": {
+      "title": "UUID Version (for Generate)",
+      "type": "string",
+      "description": "Select the UUID version to generate",
+      "enum": ["v1", "v4", "v5"],
+      "enumTitles": [
+        "Version 1 (Timestamp-based)",
+        "Version 4 (Random)",
+        "Version 5 (Namespace-based SHA-1)"
+      ],
+      "default": "v4",
+      "editor": "select"
+    },
+    "count": {
+      "title": "Number of UUIDs (for Generate)",
+      "type": "integer",
+      "description": "How many UUIDs to generate (1-100,000)",
+      "minimum": 1,
+      "maximum": 100000,
+      "default": 10,
+      "editor": "number"
+    },
+    "namespace": {
+      "title": "Namespace (for UUID v5)",
+      "type": "string",
+      "description": "Namespace UUID for version 5. Use predefined namespaces like 'DNS', 'URL', 'OID', 'X500', or provide a custom UUID",
+      "default": "DNS",
+      "editor": "textfield"
+    },
+    "name": {
+      "title": "Name (for UUID v5)",
+      "type": "string",
+      "description": "Name to hash with namespace for UUID v5 generation",
+      "editor": "textfield"
+    },
+    "uuid": {
+      "title": "UUID (for Validate/Analyze/Convert)",
+      "type": "string",
+      "description": "Single UUID to validate, analyze, or convert",
+      "editor": "textfield"
+    },
+    "uuids": {
+      "title": "UUIDs (for Batch Operations)",
+      "type": "array",
+      "description": "Array of UUIDs for batch operations (one per line)",
+      "editor": "json"
+    },
+    "outputFormat": {
+      "title": "Output Format",
+      "type": "string",
+      "description": "Format for UUID output",
+      "enum": ["json", "csv", "text"],
+      "enumTitles": [
+        "JSON (Structured data with metadata)",
+        "CSV (Comma-separated values)",
+        "Plain Text (One UUID per line)"
+      ],
+      "default": "json",
+      "editor": "select"
+    },
+    "includeMetadata": {
+      "title": "Include Metadata",
+      "type": "boolean",
+      "description": "Include additional metadata like timestamp and version in output (JSON format only)",
+      "default": true,
+      "editor": "checkbox"
+    },
+    "uppercase": {
+      "title": "Uppercase UUIDs",
+      "type": "boolean",
+      "description": "Output UUIDs in uppercase format",
+      "default": false,
+      "editor": "checkbox"
+    },
+    "removeDashes": {
+      "title": "Remove Dashes",
+      "type": "boolean",
+      "description": "Remove dashes from UUID output (e.g., a1b2c3d4e5f6... instead of a1b2c3d4-e5f6-...)",
+      "default": false,
+      "editor": "checkbox"
+    }
+  },
+  "required": ["operation"]
+}
