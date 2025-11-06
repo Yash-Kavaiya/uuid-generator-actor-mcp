@@ -1,11 +1,12 @@
 {
   "name": "uuid-generator-actor",
-  "version": "1.0.0",
-  "description": "Generate universally unique identifiers (UUIDs) on demand with support for multiple UUID versions",
+  "version": "2.0.0",
+  "description": "Generate universally unique identifiers (UUIDs) on demand with support for multiple UUID versions, validation, analysis, and MCP server integration",
   "main": "src/main.js",
   "type": "module",
   "scripts": {
     "start": "node src/main.js",
+    "mcp": "node src/mcp-server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -14,16 +15,24 @@
     "identifier",
     "generator",
     "apify",
-    "actor"
+    "actor",
+    "mcp",
+    "model-context-protocol",
+    "validation",
+    "analysis"
   ],
   "author": "Apify",
   "license": "Apache-2.0",
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0",
     "apify": "^3.2.0",
     "uuid": "^10.0.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/Yash-Kavaiya/uuid-generator-actor-mcp"
+  },
+  "bin": {
+    "uuid-generator-mcp": "./src/mcp-server.js"
   }
 }

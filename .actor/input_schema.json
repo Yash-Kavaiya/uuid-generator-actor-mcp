@@ -3,8 +3,26 @@
   "type": "object",
   "schemaVersion": 1,
   "properties": {
+    "operation": {
+      "title": "Operation",
+      "type": "string",
+      "description": "Select the operation to perform",
+      "enum": ["generate", "validate", "analyze", "convert", "batch_validate", "batch_analyze", "check_collisions", "statistics"],
+      "enumTitles": [
+        "Generate - Create new UUIDs",
+        "Validate - Check if UUID is valid",
+        "Analyze - Extract UUID details",
+        "Convert - Change UUID format",
+        "Batch Validate - Validate multiple UUIDs",
+        "Batch Analyze - Analyze multiple UUIDs",
+        "Check Collisions - Find duplicates",
+        "Statistics - Generate UUID statistics"
+      ],
+      "default": "generate",
+      "editor": "select"
+    },
     "uuidVersion": {
-      "title": "UUID Version",
+      "title": "UUID Version (for Generate)",
       "type": "string",
       "description": "Select the UUID version to generate",
       "enum": ["v1", "v4", "v5"],
@@ -17,7 +35,7 @@
       "editor": "select"
     },
     "count": {
-      "title": "Number of UUIDs",
+      "title": "Number of UUIDs (for Generate)",
       "type": "integer",
       "description": "How many UUIDs to generate (1-100,000)",
       "minimum": 1,
@@ -37,6 +55,18 @@
       "type": "string",
       "description": "Name to hash with namespace for UUID v5 generation",
       "editor": "textfield"
+    },
+    "uuid": {
+      "title": "UUID (for Validate/Analyze/Convert)",
+      "type": "string",
+      "description": "Single UUID to validate, analyze, or convert",
+      "editor": "textfield"
+    },
+    "uuids": {
+      "title": "UUIDs (for Batch Operations)",
+      "type": "array",
+      "description": "Array of UUIDs for batch operations (one per line)",
+      "editor": "json"
     },
     "outputFormat": {
       "title": "Output Format",
@@ -73,5 +103,5 @@
       "editor": "checkbox"
     }
   },
-  "required": ["uuidVersion", "count", "outputFormat"]
+  "required": ["operation"]
 }
